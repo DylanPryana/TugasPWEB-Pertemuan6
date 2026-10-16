@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00c6a7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.kotak-form {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.subjudul {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0 20px;
+}
+
+.grup {
+    margin-bottom: 15px;
+}
+
+.grup > label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4facfe;
+}
+
+/* warna border kalau input salah / benar */
+input.salah {
+    border-color: #e74c3c;
+}
+
+input.benar {
+    border-color: #2ecc71;
+}
+
+.pilihan label,
+.cek {
+    font-weight: normal;
+    font-size: 14px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.pesan-error {
+    display: block;
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.bar-kekuatan {
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+#isiBar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s;
+}
+
+#teksKekuatan {
+    font-size: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #2b8de0;
+}
+
+.tombol-reset {
+    background: #aaa;
+}
+
+.tombol-reset:hover {
+    background: #888;
+}
+
+.hasil {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #eafaf1;
+    border: 1px solid #2ecc71;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.hasil h3 {
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.hasil table {
+    width: 100%;
+}
+
+.hasil td {
+    padding: 3px 0;
+}

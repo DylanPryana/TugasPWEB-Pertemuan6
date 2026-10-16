@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="kotak-form">
+        <h2>Form Registrasi</h2>
+        <p class="subjudul">Isi data diri kamu dengan benar ya</p>
+
+        <form id="formDaftar" novalidate>
+
+            <div class="grup">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="contoh: Budi Santoso">
+                <small class="pesan-error" id="errorNama"></small>
+            </div>
+
+            <div class="grup">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="minimal 5 karakter">
+                <small class="pesan-error" id="errorUsername"></small>
+            </div>
+
+            <div class="grup">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="contoh: budi@gmail.com">
+                <small class="pesan-error" id="errorEmail"></small>
+            </div>
+
+            <div class="grup">
+                <label for="noHp">Nomor HP</label>
+                <input type="text" id="noHp" placeholder="contoh: 081234567890">
+                <small class="pesan-error" id="errorHp"></small>
+            </div>
+
+            <div class="grup">
+                <label for="tglLahir">Tanggal Lahir</label>
+                <input type="date" id="tglLahir">
+                <small class="pesan-error" id="errorTgl"></small>
+            </div>
+
+            <div class="grup">
+                <label>Jenis Kelamin</label>
+                <div class="pilihan">
+                    <label><input type="radio" name="gender" value="Laki-laki"> Laki-laki</label>
+                    <label><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+                </div>
+                <small class="pesan-error" id="errorGender"></small>
+            </div>
+
+            <div class="grup">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="minimal 8 karakter">
+                <div class="bar-kekuatan"><div id="isiBar"></div></div>
+                <small id="teksKekuatan"></small>
+                <small class="pesan-error" id="errorPassword"></small>
+            </div>
+
+            <div class="grup">
+                <label for="konfirmasi">Konfirmasi Password</label>
+                <input type="password" id="konfirmasi" placeholder="ketik ulang password">
+                <small class="pesan-error" id="errorKonfirmasi"></small>
+            </div>
+
+            <div class="grup">
+                <label class="cek"><input type="checkbox" id="lihatPassword"> Tampilkan password</label>
+            </div>
+
+            <div class="grup">
+                <label class="cek"><input type="checkbox" id="setuju"> Saya setuju dengan syarat dan ketentuan</label>
+                <small class="pesan-error" id="errorSetuju"></small>
+            </div>
+
+            <button type="submit">Daftar</button>
+            <button type="reset" class="tombol-reset">Reset</button>
+        </form>
+
+        <!-- hasil registrasi ditampilkan di sini kalau berhasil -->
+        <div id="hasil" class="hasil"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
