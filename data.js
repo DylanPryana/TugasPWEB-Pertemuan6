@@ -1,5 +1,3 @@
-// data kode pos (contoh beberapa daerah aja)
-// struktur: provinsi -> kota/kabupaten -> kecamatan -> daftar kelurahan + kode pos
 const dataKodePos = {
     "Jawa Timur": {
         "Kota Surabaya": {
