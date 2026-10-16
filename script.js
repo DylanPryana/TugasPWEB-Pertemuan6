@@ -1,4 +1,3 @@
-// ambil elemen-elemen dari html
 const pilihProvinsi = document.getElementById("pilihProvinsi");
 const pilihKota = document.getElementById("pilihKota");
 const pilihKecamatan = document.getElementById("pilihKecamatan");
@@ -9,8 +8,6 @@ const bagianHasil = document.getElementById("bagianHasil");
 const ringkasanHasil = document.getElementById("ringkasanHasil");
 const daftarHasil = document.getElementById("daftarHasil");
 
-
-// fungsi buat ngosongin dropdown, sisain option pertama aja
 function kosongkanDropdown(dropdown, teksAwal) {
     dropdown.innerHTML = "";
     let opsi = document.createElement("option");
@@ -19,7 +16,6 @@ function kosongkanDropdown(dropdown, teksAwal) {
     dropdown.appendChild(opsi);
 }
 
-// fungsi buat isi dropdown dari array nama
 function isiDropdown(dropdown, daftarNama) {
     daftarNama.forEach(function (nama) {
         let opsi = document.createElement("option");
@@ -30,11 +26,8 @@ function isiDropdown(dropdown, daftarNama) {
 }
 
 
-// pas halaman dibuka, isi dropdown provinsi
 isiDropdown(pilihProvinsi, Object.keys(dataKodePos));
 
-
-// kalau provinsi dipilih -> isi kota
 pilihProvinsi.addEventListener("change", function () {
     kosongkanDropdown(pilihKota, "-- Pilih Kota/Kabupaten --");
     kosongkanDropdown(pilihKecamatan, "-- Pilih Kecamatan --");
@@ -50,8 +43,6 @@ pilihProvinsi.addEventListener("change", function () {
     pilihKota.disabled = false;
 });
 
-
-// kalau kota dipilih -> isi kecamatan
 pilihKota.addEventListener("change", function () {
     kosongkanDropdown(pilihKecamatan, "-- Pilih Kecamatan --");
 
@@ -66,8 +57,6 @@ pilihKota.addEventListener("change", function () {
     pilihKecamatan.disabled = false;
 });
 
-
-// fungsi utama buat nyari kode pos
 function cariKodePos() {
     let provinsi = pilihProvinsi.value;
     let kota = pilihKota.value;
@@ -76,7 +65,6 @@ function cariKodePos() {
 
     pesanError.textContent = "";
 
-    // minimal harus pilih provinsi atau ketik kata kunci
     if (provinsi === "" && kataKunci === "") {
         pesanError.textContent = "Pilih provinsi atau masukkan kata kunci dulu ya";
         bagianHasil.style.display = "none";
@@ -85,7 +73,6 @@ function cariKodePos() {
 
     let hasil = [];
 
-    // loop semua data, terus saring sesuai pilihan user
     for (let namaProv in dataKodePos) {
         if (provinsi !== "" && namaProv !== provinsi) continue;
 
@@ -119,8 +106,6 @@ function cariKodePos() {
     tampilkanHasil(hasil, inputKataKunci.value.trim());
 }
 
-
-// fungsi buat nampilin hasil dalam bentuk card
 function tampilkanHasil(hasil, kataKunci) {
     bagianHasil.style.display = "block";
     daftarHasil.innerHTML = "";
@@ -166,11 +151,8 @@ function tampilkanHasil(hasil, kataKunci) {
     });
 }
 
-
-// tombol cari diklik
 tombolCari.addEventListener("click", cariKodePos);
 
-// biar bisa cari pakai tombol enter juga
 inputKataKunci.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
         cariKodePos();
