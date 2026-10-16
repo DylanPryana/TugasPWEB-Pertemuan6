@@ -1,4 +1,3 @@
-// ambil semua elemen yang dibutuhkan
 const form = document.getElementById("formDaftar");
 const inputNama = document.getElementById("nama");
 const inputUsername = document.getElementById("username");
@@ -12,7 +11,6 @@ const cekSetuju = document.getElementById("setuju");
 const kotakHasil = document.getElementById("hasil");
 
 
-// fungsi buat nampilin error di bawah input
 function tampilError(input, idError, pesan) {
     document.getElementById(idError).textContent = pesan;
     if (input) {
@@ -21,7 +19,6 @@ function tampilError(input, idError, pesan) {
     }
 }
 
-// fungsi buat hapus error kalau inputnya udah bener
 function hapusError(input, idError) {
     document.getElementById(idError).textContent = "";
     if (input) {
@@ -31,11 +28,8 @@ function hapusError(input, idError) {
 }
 
 
-// ===== fungsi-fungsi validasi =====
-
 function cekNama() {
     let nama = inputNama.value.trim();
-    // nama cuma boleh huruf dan spasi
     let polaNama = /^[a-zA-Z\s]+$/;
 
     if (nama === "") {
@@ -54,7 +48,6 @@ function cekNama() {
 
 function cekUsername() {
     let username = inputUsername.value.trim();
-    // huruf, angka, underscore aja
     let polaUsername = /^[a-zA-Z0-9_]+$/;
 
     if (username === "") {
@@ -88,7 +81,6 @@ function cekEmail() {
 
 function cekHp() {
     let hp = inputHp.value.trim();
-    // nomor hp indonesia: diawali 08, total 10-13 digit
     let polaHp = /^08[0-9]{8,11}$/;
 
     if (hp === "") {
@@ -110,7 +102,6 @@ function cekTanggal() {
         return false;
     }
 
-    // hitung umur dari tanggal lahir
     let lahir = new Date(tgl);
     let sekarang = new Date();
     let umur = sekarang.getFullYear() - lahir.getFullYear();
@@ -181,7 +172,6 @@ function cekPersetujuan() {
 }
 
 
-// ===== indikator kekuatan password =====
 function hitungKekuatan() {
     let pass = inputPassword.value;
     let skor = 0;
@@ -190,7 +180,7 @@ function hitungKekuatan() {
     if (/[A-Z]/.test(pass)) skor++;
     if (/[a-z]/.test(pass)) skor++;
     if (/[0-9]/.test(pass)) skor++;
-    if (/[^a-zA-Z0-9]/.test(pass)) skor++; // simbol
+    if (/[^a-zA-Z0-9]/.test(pass)) skor++; 
 
     let bar = document.getElementById("isiBar");
     let teks = document.getElementById("teksKekuatan");
@@ -217,9 +207,6 @@ function hitungKekuatan() {
 }
 
 
-// ===== event listener =====
-
-// validasi langsung pas user selesai ngetik (pindah dari input)
 inputNama.addEventListener("blur", cekNama);
 inputUsername.addEventListener("blur", cekUsername);
 inputEmail.addEventListener("blur", cekEmail);
@@ -229,16 +216,13 @@ inputKonfirmasi.addEventListener("input", cekKonfirmasi);
 
 inputPassword.addEventListener("input", function () {
     hitungKekuatan();
-    // kalau konfirmasi udah diisi, cek ulang biar tetap sinkron
     if (inputKonfirmasi.value !== "") cekKonfirmasi();
 });
 
-// nomor hp cuma boleh angka, huruf langsung dihapus
 inputHp.addEventListener("input", function () {
     inputHp.value = inputHp.value.replace(/[^0-9]/g, "");
 });
 
-// tampilkan / sembunyikan password
 cekLihat.addEventListener("change", function () {
     let tipe = cekLihat.checked ? "text" : "password";
     inputPassword.type = tipe;
@@ -251,11 +235,9 @@ document.querySelectorAll('input[name="gender"]').forEach(function (radio) {
 cekSetuju.addEventListener("change", cekPersetujuan);
 
 
-// pas tombol daftar diklik
 form.addEventListener("submit", function (e) {
-    e.preventDefault(); // biar halaman ga reload
+    e.preventDefault(); 
 
-    // semua fungsi dipanggil biar semua error muncul sekaligus
     let hasilCek = [
         cekNama(),
         cekUsername(),
@@ -276,7 +258,6 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    // kalau valid, tampilkan data yang didaftarkan
     let gender = document.querySelector('input[name="gender"]:checked').value;
 
     kotakHasil.innerHTML =
@@ -294,13 +275,11 @@ form.addEventListener("submit", function (e) {
     form.reset();
     hitungKekuatan();
 
-    // hapus warna hijau di semua input setelah reset
     document.querySelectorAll("input").forEach(function (inp) {
         inp.classList.remove("benar", "salah");
     });
 });
 
-// tombol reset juga bersihin error dan hasil
 form.addEventListener("reset", function () {
     document.querySelectorAll(".pesan-error").forEach(function (el) {
         el.textContent = "";
@@ -308,6 +287,6 @@ form.addEventListener("reset", function () {
     document.querySelectorAll("input").forEach(function (inp) {
         inp.classList.remove("benar", "salah");
     });
-    setTimeout(hitungKekuatan, 0); // tunggu value kosong dulu baru hitung
+    setTimeout(hitungKekuatan, 0);
     kotakHasil.style.display = "none";
 });
