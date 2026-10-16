@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    color: #333;
+}
+
+header {
+    background: #2563eb;
+    color: white;
+    padding: 18px 30px;
+}
+
+header h1 {
+    font-size: 22px;
+}
+
+main {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.kotak-cari {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.keterangan {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 12px 0 5px;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
+
+select:disabled {
+    background: #eee;
+    cursor: not-allowed;
+}
+
+.baris-cari {
+    display: flex;
+    gap: 8px;
+}
+
+.baris-cari input {
+    flex: 1;
+}
+
+button {
+    padding: 10px 22px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #12833c;
+}
+
+.pesan-error {
+    display: block;
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.bagian-hasil {
+    display: none;
+    margin-top: 25px;
+}
+
+.bagian-hasil h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.ringkasan {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.daftar-hasil {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.kartu {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kartu-judul {
+    background: #16a34a;
+    color: white;
+    padding: 10px 14px;
+    font-weight: bold;
+}
+
+.kartu-isi {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.kode {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.kosong {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #888;
+}

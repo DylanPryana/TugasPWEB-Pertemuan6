@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kode Pos Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Kode Pos Indonesia</h1>
+    </header>
+
+    <main>
+        <div class="kotak-cari">
+            <p class="keterangan">Cari kode pos di wilayah Indonesia dengan memasukkan beberapa kata kunci pencarian di bawah ini.</p>
+
+            <label for="pilihProvinsi">Provinsi</label>
+            <select id="pilihProvinsi">
+                <option value="">-- Pilih Provinsi --</option>
+            </select>
+
+            <label for="pilihKota">Kota atau Kabupaten</label>
+            <select id="pilihKota" disabled>
+                <option value="">-- Pilih Kota/Kabupaten --</option>
+            </select>
+
+            <label for="pilihKecamatan">Kecamatan</label>
+            <select id="pilihKecamatan" disabled>
+                <option value="">-- Pilih Kecamatan --</option>
+            </select>
+
+            <label for="kataKunci">Masukkan Kata Kunci Pencarian (Kelurahan)</label>
+            <div class="baris-cari">
+                <input type="text" id="kataKunci" placeholder="contoh: Keputih">
+                <button id="tombolCari">Cari</button>
+            </div>
+            <small id="pesanError" class="pesan-error"></small>
+        </div>
+
+        <!-- hasil pencarian muncul di sini -->
+        <div id="bagianHasil" class="bagian-hasil">
+            <h2>Hasil Pencarian</h2>
+            <p id="ringkasanHasil" class="ringkasan"></p>
+            <div id="daftarHasil" class="daftar-hasil"></div>
+        </div>
+    </main>
+
+    <!-- data.js harus dipanggil duluan sebelum script.js -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
